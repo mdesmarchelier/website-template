@@ -47,3 +47,11 @@ html, body {
 	text-align: center;
 }
 
+#temoignages .panel-body {
+	min-height: 200px;
+	overflow: auto;
+}
+
+#temoignages .panel-footer {
+	text-align: right;
+}
