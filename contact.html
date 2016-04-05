@@ -11,7 +11,49 @@
 
 	<title>Acapela RH</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+$(function() {
+	var locations = [
+	['Lyon', 45.757934, 4.836149, 4],
+	['Marcq-en-Barœul', 50.677548, 3.098176, 5],
+	['Cysoing', 50.566136, 3.214326, 3],
+	['Dardilly', 45.812004, 4.751704, 2]
+	];
 
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom:5,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	});
+
+	var infowindow = new google.maps.InfoWindow();
+
+	var marker, i;
+
+	for (i = 0; i < locations.length; i++) {  
+		marker = new google.maps.Marker({
+			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+			map: map
+		});
+
+		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			return function() {
+				infowindow.setContent('ADRESSE : ' + locations[i][0]);
+				infowindow.open(map, marker);
+			}
+		})(marker, i));
+	}
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': 'France'}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			map.setCenter(results[0].geometry.location);
+		} else {
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
+});
+</script>
 <body>
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
@@ -54,12 +96,10 @@
 	</nav>
 	<div class="section container">
 		<div class="row">
-			<div class="col-md-3">
-				<div class="thumbnail">
-					<img src="img/contact.png" alt=""/>
-				</div>
+			<div class="col-md-6">
+				<div id="map" style="display: block; width: 75%; height: 400px;"></div>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-4">
 				<p>
 					Agathe Vieille-Cessay  06.68.80.52.36 -  contact@acapela-rh.fr
 				</p>
