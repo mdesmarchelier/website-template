@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			var locations = [
+			['Lyon', 45.757934, 4.836149, 4],
+			['Marcq-en-Barœul', 50.677548, 3.098176, 5],
+			['Cysoing', 50.566136, 3.214326, 3],
+			['Dardilly', 45.812004, 4.751704, 2]
+			];
+
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom:5,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+
+			var infowindow = new google.maps.InfoWindow();
+
+			var marker, i;
+
+			for (i = 0; i < locations.length; i++) {  
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					map: map
+				});
+
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						infowindow.setContent('ADRESSE : ' + locations[i][0]);
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
+			}
+			var geocoder = new google.maps.Geocoder();
+			geocoder.geocode( { 'address': 'France'}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					map.setCenter(results[0].geometry.location);
+				} else {
+					alert("Geocode was not successful for the following reason: " + status);
+				}
+			});
+		});
+	</script>
+
+	<style type="text/css">
+		#map {
+			display: block;
+			width: 100%;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+			transform: translateZ(0px);
+			background-color: rgb(229, 227, 223);
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.43);
+			border-radius: 4px;
+    	}
+	</style>
+
+	<title>Acapela RH</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="index.html">Acapela RH</a>
+			</div>
+
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="personnel.html">
+							<span class="glyphicon glyphicon-user"></span>
+							Personnel
+						</a>
+					</li>
+					
+					<li class="active">
+						<a href="contact.html">
+							<span class="glyphicon glyphicon-phone"></span>
+							Contact
+						</a>
+					</li>
+					
+					<li>
+						<a href="temoignages.html">
+							<span class="glyphicon glyphicon-comment"></span>
+							Témoignages
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="section container">
+		<div class="row" style="margin-bottom: 1em;">
+			<div class="col-md-6">
+				<div id="map"></div>
+			</div>
+			<div class="col-md-6">
+				<table class="table table-bordered" style="width: 100%;">
+					<tbody>
+						<tr><td>Agathe Vieille-Cessay</td></tr>
+						<tr><td><span class="glyphicon glyphicon-phone"></span>06.68.80.52.36</td></tr>
+						<tr><td><a href="mailto:contact@acapela-rh.fr">contact@acapela-rh.fr</a></td></tr>
+						<tr><td>S.I.R.E.T 43404590200039</td></tr>
+						<tr><td>N° de formateur : 31590654259<br/>Code APE 7022Z</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p class="text-nowrap">
+				</p>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				N’hésitez pas à me joindre au <strong>06.68.80.52.36</strong>, c’est <strong>simple</strong> et <strong>rapide</strong>
+				mais vous pouvez aussi utiliser le formulaire ci-dessous:
+			</div>
+
+			<div class="panel-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Nom</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Prénom</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Adresse mail</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Objet du message</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Votre message</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="5"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary">Envoyer</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
