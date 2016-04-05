@@ -13,62 +13,62 @@
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 
 	<script type="text/javascript">
-		$(function() {
-			var locations = [
-			['Lyon', 45.757934, 4.836149, 4],
-			['Marcq-en-Barœul', 50.677548, 3.098176, 5],
-			['Cysoing', 50.566136, 3.214326, 3],
-			['Dardilly', 45.812004, 4.751704, 2]
-			];
+	$(function() {
+		var locations = [
+		['Lyon', 45.757934, 4.836149, 4],
+		['Marcq-en-Barœul', 50.677548, 3.098176, 5],
+		['Cysoing', 50.566136, 3.214326, 3],
+		['Dardilly', 45.812004, 4.751704, 2]
+		];
 
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom:5,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			});
-
-			var infowindow = new google.maps.InfoWindow();
-
-			var marker, i;
-
-			for (i = 0; i < locations.length; i++) {  
-				marker = new google.maps.Marker({
-					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-					map: map
-				});
-
-				google.maps.event.addListener(marker, 'click', (function(marker, i) {
-					return function() {
-						infowindow.setContent('ADRESSE : ' + locations[i][0]);
-						infowindow.open(map, marker);
-					}
-				})(marker, i));
-			}
-			var geocoder = new google.maps.Geocoder();
-			geocoder.geocode( { 'address': 'France'}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					map.setCenter(results[0].geometry.location);
-				} else {
-					alert("Geocode was not successful for the following reason: " + status);
-				}
-			});
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom:5,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
-	</script>
 
-	<style type="text/css">
-		#map {
-			display: block;
-			width: 100%;
-			height: 400px;
-			position: relative;
-			overflow: hidden;
-			transform: translateZ(0px);
-			background-color: rgb(229, 227, 223);
-			box-shadow: 0 0 12px rgba(0, 0, 0, 0.43);
-			border-radius: 4px;
-    	}
-	</style>
+		var infowindow = new google.maps.InfoWindow();
 
-	<title>Acapela RH</title>
+		var marker, i;
+
+		for (i = 0; i < locations.length; i++) {  
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map
+			});
+
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					infowindow.setContent('ADRESSE : ' + locations[i][0]);
+					infowindow.open(map, marker);
+				}
+			})(marker, i));
+		}
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { 'address': 'France'}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				map.setCenter(results[0].geometry.location);
+			} else {
+				alert("Geocode was not successful for the following reason: " + status);
+			}
+		});
+	});
+</script>
+
+<style type="text/css">
+#map {
+	display: block;
+	width: 100%;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	transform: translateZ(0px);
+	background-color: rgb(229, 227, 223);
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.43);
+	border-radius: 4px;
+}
+</style>
+
+<title>Acapela RH</title>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-static-top">
@@ -141,50 +141,60 @@
 				mais vous pouvez aussi utiliser le formulaire ci-dessous:
 			</div>
 
-			<div class="panel-body">
+			<div class="panel-body" style="text-align:center;">
 				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Nom</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control">
+					<div class="form-group col-sm-12">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Nom"/>
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-user"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Prénom"/>
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-user"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div class="input-group">
+							<input type="email" class="form-control" placeholder="Adresse mail"/>
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-envelope"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div class="input-group">
+							<input type="email" class="form-control" placeholder="Objet du message"/>
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div class="input-group">
+							<textarea rows="5" class="form-control" placeholder="Votre message ..."></textarea>
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-align-justify"></i>
+							</span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Prénom</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Adresse mail</label>
-						<div class="col-sm-10">
-							<input type="email" class="form-control">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Objet du message</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Votre message</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" rows="5"></textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Envoyer</button>
+						<div class="col-sm-offset-1 col-sm-7">
+							<button type="submit" class="btn btn-secondary">Envoyer</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 	</body>
-</html>
+	</html>
