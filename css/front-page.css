@@ -1,0 +1,49 @@
+
+html, body {
+	background-color: #F5F5F5;
+}
+
+#frontPage {
+	background: #e74c3c url( '../img/cover.jpg' ) center;
+	background-size: cover;
+
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#frontPage .section {
+}
+
+#frontPage .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#frontPage h1 {
+	color: rgb(255, 255, 255);
+}
+
+#frontPage .panel {
+	background: rgba(255, 255, 255, 0.24);
+	padding: 1em;
+	margin-top: 2em;
+	box-shadow: 0 0 32px rgba(255, 255, 255, 0.13);
+}
+
+#frontPage .nav-pills a {
+	color: white;
+}
+
+#frontPage .nav-pills li:hover a {
+	color: black;
+}
+
+#contacts {
+
+}
+
+#contacts .panel-heading {
+	text-align: center;
+}
+
