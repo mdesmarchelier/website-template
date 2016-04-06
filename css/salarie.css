@@ -1,0 +1,91 @@
+#presentation{
+	background: #b8110a;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#presentation .section {
+}
+
+#presentation .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#section1{
+	background: #d0130c;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#section1 .section {
+}
+
+#section1 .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#section2{
+	background: #e8150d;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#section2 .section {
+}
+
+#section2 .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#section3{
+	background: #f2241c;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#section3 .section {
+}
+
+#section3 .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#section4{
+	background: #f43b34;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#section4 .section {
+}
+
+#section4 .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#section5{
+	background: #f5534d;
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#section5 .section {
+}
+
+#section5 .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
