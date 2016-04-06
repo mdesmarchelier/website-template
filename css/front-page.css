@@ -47,6 +47,11 @@ html, body {
 	text-align: center;
 }
 
+#temoignages .panel {
+	border-radius: 8px;
+	overflow: hidden;
+}
+
 #temoignages .panel-body {
 	min-height: 200px;
 	overflow: auto;
