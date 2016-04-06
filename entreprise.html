@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/jquery.fullpage.css" />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullpage.min.js"></script>
+
+</head>
+<style>
+#fullpage{
+
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#fullpage .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#fullpage .slide1 {
+	background: #446CB3;
+}
+#fullpage .slide2 {
+	background: #52B3D9;
+}
+</style>
+<script>
+$(document).ready(function() {
+	$('#fullpage').fullpage();
+});
+</script>
+<body>
+	<div id="fullpage">
+		<div class="section slide1">
+			<div class="wrapper">
+				<div class="page-header">
+					<h1>Entreprise</h1>
+				</div>
+				<p>ACAPELA RH accompagne vos salariés, en bilan de compétences, bilan professionnel, coaching ou en confirmation d'embauche.</p>
+				<p>Anticiper les évolutions, établir un dialogue constructif avec les salariés, aider les personnes qui ont un travail de deuil professionnel à faire ou de valider le réalisme d’un projet professionnel.</p>
+			</div>
+		</div>
+		<div class="section slide2">
+			<div class="wrapper">
+				<div class="page-header">
+					<h1>Première étape : Le bilan de compétences</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
