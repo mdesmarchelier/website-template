@@ -1,0 +1,31 @@
+#fullpage{
+	background-size: cover;
+	color: #EAEAEA;
+	font-size: 1.2em;
+}
+
+#fullpage .wrapper {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#fullpage .slide1 {
+	background-color: #1963EF;
+}
+
+#fullpage .slide2 {
+	background-color: #1E52BB;
+}
+
+#fullpage .slide3 {
+	background-color: #2A91D0;
+}
+
+#fullpage .slide4 {
+	background-color: #1A99A0;
+}
+
+#fullpage .slide5 {
+	background-color: #17AF63;
+}
