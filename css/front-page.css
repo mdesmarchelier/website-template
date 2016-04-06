@@ -47,16 +47,16 @@ html, body {
 	text-align: center;
 }
 
-#temoignages .panel {
+.temoignages .panel {
 	border-radius: 8px;
 	overflow: hidden;
 }
 
-#temoignages .panel-body {
+.temoignages .panel-body {
 	min-height: 200px;
 	overflow: auto;
 }
 
-#temoignages .panel-footer {
+.temoignages .panel-footer {
 	text-align: right;
 }
